@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "dist",
+    "target": "ESNext",
+    "module": "commonjs",
+    "noEmit": true,
+    "composite": true,
+    "emitDeclarationOnly": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "references": [
+    {
+      "path": "../client"
+    },
+    {
+      "path": "../shared"
+    }
+  ],
+  "exclude": [".turbo", "dist", "node_modules"]
+}

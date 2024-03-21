@@ -1,0 +1,124 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "globalDotEnv": [
+        ".env.dev",
+        ".env.prod"
+    ],
+    "pipeline": {
+        "prod:build": {
+            "cache": false,
+            "dependsOn": [
+                "^prod:build"
+            ],
+            "outputs": [
+                "dist/**"
+            ]
+        },
+        "prod:build:libs": {
+            "cache": false,
+            "dependsOn": [
+                "^prod:build:libs"
+            ],
+            "outputs": [
+                "dist/**"
+            ]
+        },
+        "prod:build:apps": {
+            "cache": false,
+            "dependsOn": [
+                "^prod:build:apps"
+            ],
+            "outputs": [
+                "dist/**"
+            ]
+        },
+        "prod:deploy": {
+            "cache": false
+        },
+        "prod:deploy:frontend": {
+            "cache": false
+        },
+        "prod:deploy:landing": {
+            "cache": false
+        },
+        "prod:deploy:site": {
+            "cache": false
+        },
+        "prod:deploy:demo": {
+            "cache": false
+        },
+        "prod:deploy:backend": {
+            "cache": false
+        },
+        "dev:build": {
+            "dependsOn": [
+                "^dev:build"
+            ],
+            "outputs": [
+                "dist/**"
+            ]
+        },
+        "dev:build:libs": {
+            "dependsOn": [
+                "^dev:build:libs"
+            ],
+            "outputs": [
+                "dist/**"
+            ]
+        },
+        "dev:build:apps": {
+            "dependsOn": [
+                "^dev:build:apps"
+            ],
+            "outputs": [
+                "dist/**"
+            ]
+        },
+        "dev": {
+            "persistent": true
+        },
+        "dev:deploy": {
+            "cache": false
+        },
+        "dev:deploy:frontend": {
+            "cache": false
+        },
+        "dev:deploy:landing": {
+            "cache": false
+        },
+        "dev:deploy:site": {
+            "cache": false
+        },
+        "dev:deploy:demo": {
+            "cache": false
+        },
+        "dev:deploy:backend": {
+            "cache": false
+        },
+        "dev:gen": {
+            "cache": false
+        },
+        "dev:run:snap": {},
+        "test": {
+            "cache": false
+        },
+        "cargo:repair": {
+            "cache": false
+        },
+        "lint": {
+            "dependsOn": [
+                "^lint"
+            ]
+        },
+        "format": {
+            "dependsOn": [
+                "^format"
+            ]
+        },
+        "doc": {
+            "dependsOn": [
+                "^doc"
+            ]
+        }
+    }
+}

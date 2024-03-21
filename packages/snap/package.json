@@ -1,0 +1,60 @@
+{
+  "name": "@fort-major/msq",
+  "version": "0.2.10",
+  "description": "Privacy-focused MetaMask snap for the Internet Computer (ICP)",
+  "keywords": [
+    "MetaMask",
+    "web3",
+    "Internet Computer",
+    "ICP",
+    "wallet",
+    "payments",
+    "authorization",
+    "auth",
+    "login",
+    "crypto",
+    "icrc1",
+    "agent"
+  ],
+  "main": "dist/bundle.js",
+  "types": "",
+  "author": "fort-major.org",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fort-major/msq.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fort-major/msq/issues"
+  },
+  "homepage": "https://icp.msq.tech",
+  "scripts": {
+    "prod:build": "tsc && pnpm run prod:build:snap",
+    "prod:build:snap": "mm-snap build -s ./src/index.ts",
+    "prod:build:apps": "pnpm run prod:build",
+    "pub": "mm-snap manifest --fix && npm publish",
+    "dev:build": "tsc && mm-snap build -s ./src/index.ts",
+    "dev:build:snap": "pnpm run dev:build",
+    "dev:build:apps": "pnpm run dev:build",
+    "dev": "mm-snap watch -s ./src/index.ts -d dist",
+    "dev:run:snap": "pnpm run dev",
+    "test": "jest",
+    "lint": "eslint --fix src --ext .ts --ext .tsx",
+    "format": "pnpm exec prettier ./src/**/*.{ts,tsx} --write",
+    "doc": "typedoc ./src/**/*.{ts,tsx}"
+  },
+  "devDependencies": {
+    "@metamask/snaps-cli": "3.0",
+    "@metamask/snaps-jest": "4.0",
+    "@types/jest": "29.5.10",
+    "@types/node": "20.10.3",
+    "cbor-x": "1.5.6",
+    "jest": "29.7.0",
+    "ts-jest": "29.1.1"
+  },
+  "dependencies": {
+    "@dfinity/identity-secp256k1": "1.0",
+    "@fort-major/msq-shared": "workspace:*",
+    "@metamask/snaps-sdk": "2.0"
+  }
+}
